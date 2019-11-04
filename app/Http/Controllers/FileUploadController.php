@@ -21,7 +21,8 @@ class FileUploadController extends Controller
 
         if($request->hasFile('image')){
             $files = $request->file('image');
-            $file_name = \FileUpload::uploadData($files,'upload');
+            //$file_name = \FileUpload::uploadData($files,'upload');
+            $file_name = \FileUpload::upload('public', $files, 'cropOpenGraph');
             $file->image = $file_name;
             $file->save();
 

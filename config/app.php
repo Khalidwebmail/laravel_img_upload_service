@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,7 +231,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Larademo' => App\Larademo\LarademoFacade::class, /**/
         'Larashout'   =>  App\Larashout\LarashoutFacade::class,
-        'FileUpload'   =>  App\Uploader\FileUploadFacade::class
+        'FileUpload'   =>  App\Uploader\FileUploadFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
