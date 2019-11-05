@@ -8,6 +8,6 @@ class FileUploadFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'fileupload';
+        return 'FileUpload';
     }
 }
