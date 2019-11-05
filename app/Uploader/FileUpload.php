@@ -32,11 +32,11 @@ class FileUpload
         $this->filename = Str::random(25).'.'.$this->file_obj->getClientOriginalExtension();
        Storage::disk($this->disk)->put($this->filename, File::get($this->file_obj));
 
-        if(count($parameters = []) > 0) {
+        if(count($parameters) > 0) {
             //dd($parameters);
             foreach($parameters as $parameter) {
                 $function = ucwords($parameter);
-                $this->crop{str_replace(' ','',$function)}();
+                $this->{"crop".str_replace(' ','',$function)}();
             }
         }
 
@@ -46,6 +46,6 @@ class FileUpload
     public function cropOpenGraph()
     {
         $path = Config::get('filesystems.disks.'.$this->disk.'.root');
-        Image::make($this->file_obj)->resize(1200, 630)->save($path . '/1200x630-' . $this->filename);
+        Image::make($this->file_obj)->crop(1200, 630)->save($path . '/1200x630-' . $this->filename);
     }
 }
